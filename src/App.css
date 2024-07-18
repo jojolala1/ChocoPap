@@ -1,0 +1,99 @@
+@import './Charte.css';
+
+
+.marronCBg {
+  background-color: var(--marronC);
+}
+.marronBg {
+  background-color: var(--marron);
+}
+.marronFBg {
+  background-color: var(--marronF);
+}
+.jauneBg {
+  background-color: var(--jaune);
+}
+.bleuBg {
+  background-color: var(--bleu);
+}
+.blancBg {
+  background-color: var(--blanc);
+}
+
+
+.marronCT {
+  color: var(--marronC);
+}
+.marronT {
+  color: var(--marron);
+}
+.marronFT {
+  color: var(--marronF);
+}
+.jauneT {
+  color: var(--jaune);
+}
+.bleuT {
+  color: var(--bleu);
+}
+.blancT {
+  color: var(--blanc);
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+
+}
+
+.title {
+  font-family: var(--titleFont);
+}
+
+.logo{
+  width: 35px;
+}
+
+.top {
+  top:0;
+}
+
+.bottom {
+  bottom:0;
+}
+
+.divApp {
+  min-height: 100vh;
+}
+
+.footer {
+  margin-top: auto;
+  flex-grow: 1;
+}
+
+.content-img {
+  overflow: hidden;
+  object-fit: cover;
+  height: 40vh;
+}
+
+.borderCb {
+  border: 4px solid var(--bleu);
+}
+
+.borderCb:hover {
+  background-color: var(--bleu);
+}
+
+@media screen and (min-width: 500px) {
+  .hautImg {
+    width: 100%;
+    max-height: 65vh;
+    object-fit: cover;
+    overflow: hidden;
+
+  }
+}

@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+
+
+:root {
+    --blanc: #FFFFFF;
+    --bleu: #50C0CF;
+    --marron: #2C1E1E;
+    --marronF: #1F1615;
+    --marronC: #B65F28;
+    --jaune: #FFD543;
+
+    --titleFont: "Fjalla One", sans-serif;
+    --textFont: "DM Serif Display", serif;
+
+}
