@@ -1,18 +1,18 @@
 export default function Footer() {
     return (
-        <div className="col-md-3 col-lg-2 mx-auto marronCBg w-100 d-flex flex-column flex-md-row footer blancT p-5 gap-5">
-            <div className="col-sm">
+        <div className="col-md-3 col-lg-2 mx-auto marronBg w-100 d-flex flex-column flex-md-row footer blancT p-5 gap-5">
+            <div className="col-sm blancT">
                 <h5 className="mb-4">Choco Pap</h5>
-                <p>
+                <p className="blancT">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Magni veritatis totam laboriosam fuga ducimus aliquam
                     facilis iste soluta enim accusamus numquam velit deserunt
                     beatae corporis, officia non modi dolores qui.
                 </p>
             </div>
-            <div className="col-sm">
+            <div className="col-sm blancT">
                 <h5 className="mb-4">Contact</h5>
-                <address>
+                <address className="blancT">
                     Adresse: 51 Rue du chocolat 75000 Paris
                     <br />
                     <a href="tel:+0606060606" className="text-decoration-none blancT ">01.23.45.67.89 </a>

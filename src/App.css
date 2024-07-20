@@ -40,9 +40,19 @@
   color: var(--blanc);
 }
 
+
 *{
   box-sizing: border-box;
+  color: var(--marronF);
+  font-family: var(--textFont);
+
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--titleFont);
+}
+
+p, button, input, 
 
 body {
   margin: 0;
@@ -88,7 +98,10 @@ body {
   background-color: var(--bleu);
 }
 
-@media screen and (min-width: 500px) {
+.marronFBT {
+  border:3px solid var(--marron);
+}
+
   .hautImg {
     width: 100%;
     max-height: 65vh;
@@ -96,4 +109,34 @@ body {
     overflow: hidden;
 
   }
+  .filtre {
+    height: auto;
+    min-width: 25vw ;
+;
+}
+
+.w-35 {
+  min-width: 90px;
+  width: 35%;
+}
+
+.check:checked  {
+  background-color: var(--jaune)!important;
+  border: 1px var(--jaune)  solid!important;
+}
+
+.check:hover  {
+  box-shadow: var(--jaune)  solid!important;
+  border: 1px var(--jaune)  solid!important;
+}
+
+.check:focus  {
+  box-shadow: var(--jaune)  solid!important;
+  border: 1px var(--jaune)  solid!important;
+}
+
+
+.product {
+  max-height: 350px;
+  min-width: 250px;
 }

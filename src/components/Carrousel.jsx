@@ -1,8 +1,12 @@
-import Accueil1 from "../assets/accueil1.jpg";
-import Accueil2 from "../assets/accueil2.jpg";
-import Accueil3 from "../assets/accueil3.jpg";
+import Accueil1 from "../images/accueil1.jpg";
+import Accueil2 from "../images/accueil2.jpg";
+import Accueil3 from "../images/accueil3.jpg";
+import { NavLink } from 'react-router-dom';
+
 
 export default function Carrousel() {
+
+    // goBoutique onClick={goBoutique}
 
     return (
         <>
@@ -35,18 +39,23 @@ export default function Carrousel() {
                             <img src={Accueil1} className="hautImg" alt="..." />
                             <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
                                 <h1 className="title display-2 jauneT">CHOCO PAP</h1>
-                                <button className="btn  mt-5 borderCb mx-auto rounded-0 p-2 p-md-3  fw-bold blancBg ">
-                                    Voir la boutique
-                                </button>
+                                <NavLink className="nav-link my-md-2 blancT" to="/boutique" >
+                                    <button  className="btn  mt-5 borderCb mx-auto rounded-0 p-2 p-md-3  fw-bold blancBg ">
+                                        Voir la boutique
+                                    </button>
+                                </NavLink>
+                               
                             </div>
                         </div>
                         <div className="carousel-item">
                             <img src={Accueil2} className="hautImg" alt="..." />
                             <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
                                 <h1 className="title display-2 jauneT">CHOCO PAP</h1>
-                                <button className="btn  mt-5 borderCb mx-auto rounded-0 p-2 p-md-3  fw-bold blancBg ">
-                                    Voir la boutique
-                                </button>
+                                <NavLink className="nav-link my-md-2 blancT" to="/boutique" >
+                                    <button  className="btn  mt-5 borderCb mx-auto rounded-0 p-2 p-md-3  fw-bold blancBg ">
+                                        Voir la boutique
+                                    </button>
+                                </NavLink>
                             </div>
                         </div>
                         <div className="carousel-item">
@@ -55,9 +64,11 @@ export default function Carrousel() {
                             
                             <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
                                 <h1 className="title display-2 jauneT">CHOCO PAP</h1>
-                                <button className="btn  mt-5 borderCb mx-auto rounded-0 p-2 p-md-3  fw-bold blancBg ">
-                                    Voir la boutique
-                                </button>
+                                <NavLink className="nav-link my-md-2 blancT" to="/boutique" >
+                                    <button  className="btn  mt-5 borderCb mx-auto rounded-0 p-2 p-md-3  fw-bold blancBg ">
+                                        Voir la boutique
+                                    </button>
+                                </NavLink>
                             </div>
                         </div>
                     </div>
