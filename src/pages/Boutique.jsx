@@ -23,15 +23,14 @@ export default function Boutique() {
         fetchProducts();
     }, []);
 
-    
-    const optionPrice = (max, signe="",selected=1) => {
-        const options = []
-        for(let  i= 1; i <= max ;i++ ) {
-            if(selected === i){
-             options.push(<option selected key={i} value={i}>{i+signe}</option>)
 
-            }else{
-             options.push(<option key={i} value={i}>{i+signe}</option>)
+    const optionPrice = (max, signe = "", selected = 1) => {
+        const options = []
+        for (let i = 1; i <= max; i++) {
+            if (selected === i) {
+                options.push(<option onClick={(e) => { e.target.value, console.log(e) }} selected key={i} value={i}>{i + signe}</option>)
+            } else {
+                options.push(<option key={i} value={i}>{i + signe}</option>)
             }
         }
         return options
@@ -47,143 +46,250 @@ export default function Boutique() {
             "noix": true,
             "fruit": true,
             "liqueur": true
-          }
+        }
+    )
+
+    const [note, setNote] = useState(
+        {
+            'noteMin': 1,
+            'noteMax': 5,
+
+        }
+    )
+
+    const handleOnChangeNoteMin = (e) => {
+        const newNote = {
+            'noteMin': e.target.value,
+            'noteMax': note.noteMax
+        }
+        setNote(newNote)
+    }
+
+    const handleOnChangeNoteMax = (e) => {
+        const newNote = {
+            'noteMin': note.noteMin,
+            'noteMax': e.target.value,
+        }
+        setNote(newNote)
+    }
+
+    const [prix, setPrix] = useState(
+        {
+            'prixMin': 1,
+            'prixMax': 100,
+
+        }
     )
 
 
+    const handleOnChangeMin = (e) => {
+        const newPrix = {
+            'prixMin': e.target.value,
+            'prixMax': prix.prixMax
+        }
+        setPrix(newPrix)
+    }
+
+    const handleOnChangeMax = (e) => {
+        const newPrix = {
+            'prixMin': prix.prixMin,
+            'prixMax': e.target.value,
+        }
+        setPrix(newPrix)
+    }
 
     const visibleProduct = products.filter(product => {
         return Object.keys(categorys).every(category => {
-            return !product.category[category] || categorys[category];
+            return (!product.category[category] || categorys[category]) && (product.price > prix['prixMin'] && product.price < prix['prixMax']) && (product.note >= note['noteMin'] && product.note <= note['noteMax']);
         });
     });
 
 
 
+
+
+
     const modifyCategory = (changeCategory) => {
-        setCategorys((newCategorys)=> ({
+        setCategorys((newCategorys) => ({
             ...newCategorys,
-            ...changeCategory 
-            
+            ...changeCategory
+
         }
-    ))
+        ))
     }
 
-   const [bool, setBool] = useState(false)
+    const [bool, setBool] = useState(false)
 
     const everyToggleCategory = () => {
         const newCategory = {}
 
-            for (let i in categorys){
-                    newCategory[i] = bool   
-                modifyCategory(newCategory)
+        for (let i in categorys) {
+            newCategory[i] = bool
+            modifyCategory(newCategory)
 
         }
         setBool(!bool)
     }
 
+    const [indiceCat, setIndiceCat] = useState('+')
+    const [indicePrix, setIndicePrix] = useState('+')
+    const [indiceNote, setIndiceNote] = useState('+')
+
+    const togglerIndice = (indice, setIndice) => {
+        if (indice === '+') {
+            setIndice('-')
+        } else {
+            setIndice('+')
+        }
+        return indice
+    }
+
+    const Categories = () => {
+        return (
+            <>
+
+                <div className="">
+                    <input className="form-check-input me-2 check" type="checkbox" id="tous" onChange={() => modifyCategory(everyToggleCategory())} defaultChecked={categorys.tous} />
+                    <label className="form-check-label colorSize  " htmlFor="tous" >
+                        Tous
+                    </label>
+                </div>
+
+
+                <div className="">
+                    <input className="form-check-input me-2 check" type="checkbox" id="chocolat-blanc" onChange={() => modifyCategory({ blanc: !categorys.blanc })} checked={categorys.blanc} />
+                    <label className="form-check-label colorSize" htmlFor="chocolat-blanc">
+                        Chocolat blanc
+                    </label>
+                </div>
+
+                <div className="">
+                    <input className="form-check-input me-2 check" type="checkbox" id="chocolatlait" onChange={() => modifyCategory({ lait: !categorys.lait })} checked={categorys.lait} />
+                    <label className="form-check-label colorSize" htmlFor="chocolatlait">
+                        Chocolat au lait
+                    </label>
+                </div>
+
+                <div className="">
+                    <input className="form-check-input me-2 check" type="checkbox" id="chocolatlait" onChange={() => modifyCategory({ noir: !categorys.noir })} checked={categorys.noir} />
+                    <label className="form-check-label colorSize" htmlFor="chocolatlait">
+                        Chocolat noir
+                    </label>
+                </div>
+
+                <div className="">
+                    <input className="form-check-input me-2 check" type="checkbox" id="noix/noisette" onChange={() => modifyCategory({ noix: !categorys.noix })} checked={categorys.noix} />
+                    <label className="form-check-label colorSize" htmlFor="noix/noisette">
+                        Noix/Noisette
+                    </label>
+                </div>
+
+                <div className="">
+                    <input className="form-check-input me-2 check" type="checkbox" id="fruit" onChange={() => modifyCategory({ fruit: !categorys.fruit })} checked={categorys.fruit} />
+                    <label className="form-check-label colorSize" htmlFor="fruit">
+                        Fruit
+                    </label>
+                </div>
+
+                <div className="">
+                    <input className="form-check-input me-2 check" type="checkbox" id="caramel" onChange={() => modifyCategory({ caramel: !categorys.caramel })} checked={categorys.caramel} />
+                    <label className="form-check-label colorSize" htmlFor="caramel">
+                        Caramel
+                    </label>
+                </div>
+
+                <div className="">
+                    <input className="form-check-input me-2 check" type="checkbox" id="liqueur" onChange={() => modifyCategory({ liqueur: !categorys.liqueur })} checked={categorys.liqueur} />
+                    <label className="form-check-label colorSize" htmlFor="liqueur">
+                        Liqueur
+                    </label>
+                </div>
+            </>
+        )
+    }
+
+    const Prix = () => {
+        return (
+            <>
+                <div className="d-flex align-items-center mb-3 ">
+                    <p className="colorSize me-3">Prix min</p>
+                    <select onChange={handleOnChangeMin} className="form-select w-35 check check" aria-label="Default select example">
+                        {optionPrice(100, "€")}
+                    </select>
+                </div>
+                <div className="d-flex align-items-center">
+                    <p className="colorSize me-3">Prix max</p>
+                    <select onChange={handleOnChangeMax} className="form-select w-35 check" aria-label="Default select example">
+                        {optionPrice(100, "€", 100)}
+                    </select>
+                </div>
+            </>
+        )
+    }
+
+    const Note = () => {
+        return (
+            <>
+                <div className="d-flex align-items-center mb-3">
+                    <p className="colorSize me-3">Note min</p>
+                    <select onChange={handleOnChangeNoteMin} className="form-select w-35 check" aria-label="Default select example">
+                        {optionPrice(5)}
+                    </select>
+                </div>
+                <div className="d-flex align-items-center">
+                    <p className="colorSize me-3">Note max</p>
+                    <select onChange={handleOnChangeNoteMax} className="form-select w-35 check" aria-label="Default select example">
+                        {optionPrice(5, "", 5)}
+                    </select>
+                </div>
+            </>
+        )
+    }
+
     return (
         <div>
             <h1 className="jauneT my-5 text-center display-3">BOUTIQUE</h1>
-            <div className=" d-flex flex-column flex-md-row pt-5">
-                <div className="filtre ">
-                <div className="container marronCBg p-5 ps-2 pt-0 marronFBT">
-                    <p className="blancT mb-3 mt-2 title h5  ">FILTRE</p>
-                    <p className="blancT title h3 text-decoration-underline mt-5 mb-4">Catégories</p>
+            <div className=" d-flex flex-column flex-md-row pt-5 ">
+                <div className="filtre">
+                    <div className=" marronCBg p-5 ps-2 pt-0 marronFBT d-none d-md-block">
+                        <p className="colorSize mb-3 mt-2 title h5  ">FILTRE</p>
+                        <form action="colorSize" className="flex-column">
+                            <p className="colorSize title h3 text-decoration-underline mt-4 mb-4">Catégories</p>
+                            <Categories />
+                            <p className="colorSize title h3 text-decoration-underline mt-5 mb-3">Prix</p>
+                            <Prix />
+                            <p className="colorSize title h3 mt-5">Notes</p>
+                            <Note />
+                        </form>
+                    </div>
+                    <div className="ms-5 mb-5 d-flex flex-column">
+                        <p className="d-inline-flex gap-1">
+                            <a onClick={() => togglerIndice(indiceCat, setIndiceCat)} className="colorSize title h3 text-decoration-underline mt-4 mb-4" data-bs-toggle="collapse" href="#collapseCategorie" role="button" aria-expanded="false" aria-controls="collapseCategorie">Catégories {indiceCat}</a>
 
-                    <form action="blancT" className="d-flex flex-column">
-                        
-                        <div className="">
-                            <input className="form-check-input me-2 check" type="checkbox" id="tous" onChange={() => modifyCategory(everyToggleCategory()) } defaultChecked={categorys.tous} />
-                            <label className="form-check-label blancT  " htmlFor="tous" >
-                            Tous
-                            </label>
+                        </p>
+                        <div className="collapse" id="collapseCategorie">
+                            <Categories />
                         </div>
-                        
+                        <p className="d-inline-flex gap-1">
+                            <a onClick={() => togglerIndice(indicePrix, setIndicePrix)} className="colorSize title h3 text-decoration-underline mt-4 mb-4" data-bs-toggle="collapse" href="#collapsePrix" role="button" aria-expanded="false" aria-controls="collapsePrix">Prix {indicePrix}</a>
 
-                        <div className="">
-                            <input className="form-check-input me-2 check" type="checkbox" id="chocolat-blanc" onChange={() => modifyCategory({blanc: !categorys.blanc }) } checked={categorys.blanc}/>
-                            <label className="form-check-label blancT" htmlFor="chocolat-blanc">
-                            Chocolat blanc
-                            </label>
+                        </p>
+                        <div className="collapse" id="collapsePrix">
+                        <Prix />
                         </div>
+ 
+                        <p className="d-inline-flex gap-1">
+                            <a onClick={() => togglerIndice(indiceNote, setIndiceNote)} className="colorSize title h3 text-decoration-underline mt-4 mb-4" data-bs-toggle="collapse" href="#collapseNote" role="button" aria-expanded="false" aria-controls="collapseNote">Note {indiceNote}</a>
 
-                        <div className="">
-                            <input className="form-check-input me-2 check" type="checkbox" id="chocolatlait" onChange={() => modifyCategory({lait: !categorys.lait }) } checked={categorys.lait}/>
-                            <label className="form-check-label blancT" htmlFor="chocolatlait">
-                            Chocolat au lait
-                            </label>
-                        </div>
-
-                        <div className="">
-                            <input className="form-check-input me-2 check" type="checkbox" id="chocolatlait" onChange={() => modifyCategory({noir: !categorys.noir }) } checked={categorys.noir}/>
-                            <label className="form-check-label blancT" htmlFor="chocolatlait">
-                            Chocolat noir
-                            </label>
-                        </div>
-
-                        <div className="">
-                            <input className="form-check-input me-2 check" type="checkbox" id="noix/noisette" onChange={() => modifyCategory({noix: !categorys.noix }) } checked={categorys.noix}/>
-                            <label className="form-check-label blancT" htmlFor="noix/noisette">
-                            Noix/Noisette
-                            </label>
+                        </p>
+                        <div className="collapse" id="collapseNote">
+                        <Note />
                         </div>
 
-                        <div className="">
-                            <input className="form-check-input me-2 check" type="checkbox" id="fruit" onChange={() => modifyCategory({fruit: !categorys.fruit }) } checked={categorys.fruit}/>
-                            <label className="form-check-label blancT" htmlFor="fruit">
-                            Fruit
-                            </label>
-                        </div>
+                    </div>
 
-                        <div className="">
-                            <input className="form-check-input me-2 check" type="checkbox" id="caramel" onChange={() => modifyCategory({caramel: !categorys.caramel }) } checked={categorys.caramel}/>
-                            <label className="form-check-label blancT" htmlFor="caramel">
-                            Caramel
-                            </label>
-                        </div>
-
-                        <div className="">
-                            <input className="form-check-input me-2 check" type="checkbox" id="liqueur" onChange={() => modifyCategory({liqueur: !categorys.liqueur }) } checked={categorys.liqueur}/>
-                            <label className="form-check-label blancT" htmlFor="liqueur">
-                            Liqueur
-                            </label>
-                        </div>
-
-                        <p className="blancT title h3 text-decoration-underline mt-5 mb-3">Prix</p>
-                        <div className="d-flex align-items-center mb-3 ">
-                            <p className="blancT me-3">Prix min</p>
-                            <select className="form-select w-35 check check" aria-label="Default select example">
-                               {optionPrice(100, "€")}
-                            </select>
-                        </div>
-                        <div className="d-flex align-items-center">
-                            <p className="blancT me-3">Prix max</p>
-                            <select className="form-select w-35 check" aria-label="Default select example">
-                               {optionPrice(100, "€", 100)}
-                            </select>
-                        </div>
-
-                        <p className="blancT title h3 mt-5">Notes</p>
-                        <div className="d-flex align-items-center mb-3">
-                            <p className="blancT me-3">Note min</p>
-                            <select className="form-select w-35 check" aria-label="Default select example">
-                               {optionPrice(5)}
-                            </select>
-                        </div>
-                        <div className="d-flex align-items-center">
-                            <p className="blancT me-3">Note max</p>
-                            <select  className="form-select w-35 check" aria-label="Default select example">
-                               {optionPrice(5,"",5)}
-                            </select>
-                        </div>
-
-
-                    </form>
                 </div>
-                </div>
-                
-                    <Products products={visibleProduct} categorys={categorys}/>
+                <Products products={visibleProduct} categorys={categorys} />
             </div>
         </div>
     );

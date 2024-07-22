@@ -112,6 +112,7 @@ body {
   .filtre {
     height: auto;
     min-width: 25vw ;
+    margin-bottom: 20px;
 ;
 }
 
@@ -139,4 +140,19 @@ body {
 .product {
   max-height: 350px;
   min-width: 250px;
+  max-width: 330px;
+}
+
+
+
+@media screen and (min-width: 0) {
+  .colorSize {
+      color:var(--marronF);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .colorSize {
+      color:var(--blanc)
+  }
 }

@@ -19,7 +19,7 @@ export default function Products ({categorys, products}) {
 
     return (
         <>
-            <div className="row row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 p-5 pt-0 gap-5 justify-content-center">
+            <div className="container-fluid row row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 m-0 p-5 pt-0 gap-5 align-items-center justify-content-center">
                 {products.map((product) => sortProduct(product, categorys))}
 
             </div>
