@@ -10,7 +10,7 @@ export default function Carrousel() {
 
     return (
         <>
-        <div className="carrouselSize">
+        <div className="">
                 <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div className="carousel-indicators mb-5">
                         <button

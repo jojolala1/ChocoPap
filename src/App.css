@@ -52,11 +52,13 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--titleFont);
 }
 
-p, button, input, 
-
-body {
+p, button, input, body {
   margin: 0;
 
+}
+
+.hNav {
+  height: 5rem;
 }
 
 .title {
@@ -96,10 +98,23 @@ body {
 
 .borderCb:hover {
   background-color: var(--bleu);
+  color: var(--blanc);
 }
 
+.borderB {
+  border: 3px dashed var(--bleu);
+}
+
+.sidebar {
+  width: 25rem;
+}
+
+
+
+
 .marronFBT {
-  border:3px solid var(--marron);
+  border:2px solid var(--marron);
+  width: 20rem;
 }
 
   .hautImg {
@@ -111,9 +126,8 @@ body {
   }
   .filtre {
     height: auto;
-    min-width: 25vw ;
     margin-bottom: 20px;
-;
+    max-height: 55rem;
 }
 
 .w-35 {
@@ -138,12 +152,32 @@ body {
 
 
 .product {
-  max-height: 350px;
-  min-width: 250px;
-  max-width: 330px;
+  height: 25rem;
+  width: 20rem;
+
 }
 
 
+.productContentImg {
+  height:40%;
+}
+
+.size {
+  height: 22rem;
+}
+
+.contentSidebar {
+  border-left: dashed 4px var(--jaune);
+  min-height: 25vh;
+}
+
+.btnW {
+  width: 12rem;
+}
+
+.inputSize {
+  width: 5rem;
+}
 
 @media screen and (min-width: 0) {
   .colorSize {

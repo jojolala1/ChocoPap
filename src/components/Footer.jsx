@@ -1,6 +1,6 @@
 export default function Footer() {
     return (
-        <div className="col-md-3 col-lg-2 mx-auto marronBg w-100 d-flex flex-column flex-md-row footer blancT p-5 gap-5">
+        <div className="m-0 col-md-3 col-lg-2 mx-auto marronBg w-100 d-flex flex-column flex-md-row z-1 footer blancT p-5 gap-5">
             <div className="col-sm blancT">
                 <h5 className="mb-4">Choco Pap</h5>
                 <p className="blancT">
