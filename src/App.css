@@ -41,11 +41,16 @@
 }
 
 
+
 *{
   box-sizing: border-box;
   color: var(--marronF);
   font-family: var(--textFont);
 
+}
+
+body, html {
+  min-height: 100vh;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -57,16 +62,17 @@ p, button, input, body {
 
 }
 
-.hNav {
-  height: 5rem;
+.titleCar{
+  font-size: 4rem;
 }
+
 
 .title {
   font-family: var(--titleFont);
 }
 
 .logo{
-  width: 35px;
+  width: 3rem;
 }
 
 .top {
@@ -78,12 +84,29 @@ p, button, input, body {
 }
 
 .divApp {
+  display: flex;
+  flex-direction: column;
   min-height: 100vh;
 }
 
-.footer {
-  margin-top: auto;
+.main-content {
   flex-grow: 1;
+  display: flex;
+}
+
+.footer {
+  flex-grow: 1;
+  margin-top: auto;
+  width: 100vh;
+}
+
+.footerSide{
+  flex-grow: 1;
+  margin-top: auto;
+}
+
+.appHeight{
+  min-height: 100vh;
 }
 
 .content-img {
@@ -105,13 +128,6 @@ p, button, input, body {
   border: 3px dashed var(--bleu);
 }
 
-.sidebar {
-  width: 25rem;
-}
-
-
-
-
 .marronFBT {
   border:2px solid var(--marron);
   width: 20rem;
@@ -127,7 +143,7 @@ p, button, input, body {
   .filtre {
     height: auto;
     margin-bottom: 20px;
-    max-height: 55rem;
+    max-height: 58rem;
 }
 
 .w-35 {
@@ -158,6 +174,8 @@ p, button, input, body {
 }
 
 
+
+
 .productContentImg {
   height:40%;
 }
@@ -169,24 +187,61 @@ p, button, input, body {
 .contentSidebar {
   border-left: dashed 4px var(--jaune);
   min-height: 25vh;
+  background: var(--blanc);
+  overflow-y:scroll;
 }
 
 .btnW {
-  width: 12rem;
+  width: 18rem;
+}
+
+.littleBtn {
+  width: 3rem;
+  height: 3rem;
+  margin-left: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .inputSize {
   width: 5rem;
 }
 
+.hautProductPage{
+  min-height: 70vh;
+}
+
 @media screen and (min-width: 0) {
   .colorSize {
       color:var(--marronF);
   }
+  .sidebar {
+    width: 100%;
 }
 
 @media screen and (min-width: 768px) {
   .colorSize {
       color:var(--blanc)
   }
+  .sidebar {
+    width: 35rem;
 }
+
+
+}
+@media screen and (min-width: 1140px) {
+  .colorSize {
+      color:var(--blanc)
+  }
+  .sidebar {
+    width: 35rem;
+}
+
+}
+
+}
+
+
+
+

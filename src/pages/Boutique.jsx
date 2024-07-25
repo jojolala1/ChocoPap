@@ -31,26 +31,11 @@ export default function Boutique() {
     const optionPrice = (max, signe = "", selected = 1) => {
         const options = [];
         for (let i = 1; i <= max; i++) {
-            if (selected === i) {
-                options.push(
-                    <option
-                        onClick={(e) => {
-                            e.target.value;
-                        }}
-                        selected
-                        key={i}
-                        value={i}
-                    >
-                        {i + signe}
-                    </option>
-                );
-            } else {
-                options.push(
-                    <option key={i} value={i}>
-                        {i + signe}
-                    </option>
-                );
-            }
+            options.push(
+                <option key={i} value={i}>
+                    {i + signe}
+                </option>
+            );
         }
         return options;
     };
@@ -65,26 +50,23 @@ export default function Boutique() {
         fruit: true,
         liqueur: true,
     });
-
     const [note, setNote] = useState({
         noteMin: 1,
         noteMax: 5,
     });
 
     const handleOnChangeNoteMin = (e) => {
-        const newNote = {
-            noteMin: e.target.value,
-            noteMax: note.noteMax,
-        };
-        setNote(newNote);
+        setNote({
+            ...note,
+            noteMin: parseInt(e.target.value),
+        });
     };
 
     const handleOnChangeNoteMax = (e) => {
-        const newNote = {
-            noteMin: note.noteMin,
-            noteMax: e.target.value,
-        };
-        setNote(newNote);
+        setNote({
+            ...note,
+            noteMax: parseInt(e.target.value),
+        });
     };
 
     const [prix, setPrix] = useState({
@@ -93,19 +75,17 @@ export default function Boutique() {
     });
 
     const handleOnChangeMin = (e) => {
-        const newPrix = {
-            prixMin: e.target.value,
-            prixMax: prix.prixMax,
-        };
-        setPrix(newPrix);
+        setPrix({
+            ...prix,
+            prixMin: parseInt(e.target.value),
+        });
     };
 
     const handleOnChangeMax = (e) => {
-        const newPrix = {
-            prixMin: prix.prixMin,
-            prixMax: e.target.value,
-        };
-        setPrix(newPrix);
+        setPrix({
+            ...prix,
+            prixMax: parseInt(e.target.value),
+        });
     };
 
     const visibleProduct = products.filter((product) => {
@@ -154,7 +134,7 @@ export default function Boutique() {
 
     const Categories = () => {
         return (
-            <>
+            <div className=" footerResponssive ">
                 <div className="">
                     <input
                         className="form-check-input me-2 check"
@@ -296,7 +276,7 @@ export default function Boutique() {
                         Liqueur
                     </label>
                 </div>
-            </>
+            </div>
         );
     };
 
@@ -307,8 +287,9 @@ export default function Boutique() {
                     <p className="colorSize me-3">Prix min</p>
                     <select
                         onChange={handleOnChangeMin}
-                        className="form-select w-35 check check"
+                        className="form-select w-35 check"
                         aria-label="Default select example"
+                        value={prix.prixMin}
                     >
                         {optionPrice(100, "€")}
                     </select>
@@ -319,6 +300,7 @@ export default function Boutique() {
                         onChange={handleOnChangeMax}
                         className="form-select w-35 check"
                         aria-label="Default select example"
+                        value={prix.prixMax}
                     >
                         {optionPrice(100, "€", 100)}
                     </select>
@@ -331,11 +313,12 @@ export default function Boutique() {
         return (
             <>
                 <div className="d-flex align-items-center mb-3">
-                    <p className="colorSize me-3">Note min</p>
+                    <p className="colorSize me-3"> Note min </p>
                     <select
                         onChange={handleOnChangeNoteMin}
                         className="form-select w-35 check"
                         aria-label="Default select example"
+                        value={note.noteMin}
                     >
                         {optionPrice(5)}
                     </select>
@@ -346,6 +329,7 @@ export default function Boutique() {
                         onChange={handleOnChangeNoteMax}
                         className="form-select w-35 check"
                         aria-label="Default select example"
+                        value={note.noteMax}
                     >
                         {optionPrice(5, "", 5)}
                     </select>
@@ -355,18 +339,18 @@ export default function Boutique() {
     };
 
     return (
-        <div>
-            <h1 className="jauneT my-5 text-center display-3">BOUTIQUE</h1>
+        <div className="footerResponssive">
+            <h1 className="jauneT my-5 text-center display-3 ">BOUTIQUE</h1>
             <div className=" d-flex flex-column flex-md-row  ">
                 <div className="d-flex  filtre">
                     <div className=" marronCBg mt-5 p-5 ps-3 pt-0 marronFBT d-none d-md-block">
-                        <p className="colorSize mb-3 mt-4 title h5  ">FILTRE</p>
+                        <p className="colorSize mb-3 mt-4 title h5 footerResponssive ">FILTRE</p>
                         <form action="colorSize" className="flex-column">
-                            <p className="colorSize title h3 text-decoration-underline mt-4 mb-4">
+                            <p className="colorSize title h3 text-decoration-underline mt-4 mb-4 ">
                                 Catégories
                             </p>
                             <Categories />
-                            <p className="colorSize title h3 text-decoration-underline mt-5 mb-3">
+                            <p className="colorSize title h3 text-decoration-underline mt-5 mb-3 ">
                                 Prix
                             </p>
                             <Prix />

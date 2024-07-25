@@ -1,11 +1,14 @@
 import { NavLink } from 'react-router-dom';
 import Logo from '../images/logo.png'
+import { useCart } from '../cartContext';
 
-export default function Navbar({toggleSidebar }) {
+export default function Navbar({toggleSidebar}) {
+    const { compteurQuantity } = useCart();
+
     return (
         <>
             <nav className="navbar navbar-expand-md bleuBg z-1 hNav">
-                <div className="container-fluid ">
+                <div className="container-fluid footerResponssive">
                     <a className="navbar-brand ms-3" href="#">
                         <img className="img-fluid logo" src={Logo} alt="Logo" />
                     </a>
@@ -13,16 +16,16 @@ export default function Navbar({toggleSidebar }) {
                         <span className="navbar-toggler-icon "></span>
                     </button>
 
-                    <div className="collapse navbar-collapse me-5" id="navbarNavAltMarkup">
+                    <div className="collapse navbar-collapse z-3 me-5" id="navbarNavAltMarkup">
                         <div className="navbar-nav ms-auto gap-md-4 ">
                             <NavLink className="nav-link my-md-2 blancT" to="/" >Accueil</NavLink>
 
                             <NavLink className="nav-link my-md-2 blancT" to="/boutique" >Boutique</NavLink>
                             <div className="d-inline-flex gap-1">
                                     <div onClick={toggleSidebar}  className=" nav-link d-flex my-md-1">
-                                        <p className=' m-md-1 pt-1 blancT'>2</p>
+                                        <p className=' m-md-1 pt-1 blancT'>{compteurQuantity}</p>
                                         <i className="bi bi-cart3 h3 blancT mb-0 mx-2"></i>
-                                        <a href="#" className="nav-link d-md-none p-0 pt-1 blancT">Panier</a>
+                                        <a  className="nav-link d-md-none p-0 pt-1 blancT">Panier</a>
                                     </div>
                             </div>
                         </div>

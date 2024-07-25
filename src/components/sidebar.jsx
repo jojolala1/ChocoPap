@@ -16,16 +16,16 @@ export default function Sidebar({ toggleSidebar, panier, AddProduct, priceTot, d
           </div>
         ) : (
           panier.map((article) => (
-            <div key={article.id} className="d-flex justify-content-start ms-2 my-5">
-              <button onClick={()=>deleteProduct(article)} className="btn my-4 px-0 border border-danger text-decoration-none d-flex align-items-center"><i className=" bi bi-x display-6 text-danger"></i></button>
+            <div key={article.id} className="d-flex justify-content-start ms-2 my-5 align-items-center">
+              <button onClick={()=>deleteProduct(article)} className="btn littleBtn my-4 px-0 border border-danger text-decoration-none d-flex align-items-center"><i className=" bi bi-x display-6 text-danger"></i></button>
               <img src={`../../src/${article.image}`} alt="chocolat" className="img-fluid w-50 rounded px-4" />
               <div className="ms-2">
-                <p className="title">{article.title}</p>
-                <p className="fw-bolder">{(article.price * article.quantity).toFixed(2)}€</p>
+                <p className="title footerResponssive">{article.title}</p>
+                <p className="fw-bolder footerResponssive">{(article.price * article.quantity).toFixed(2)}€</p>
                 <div className="d-flex">
-                  <input id={article.id} readOnly type="number" min={1} className="form-control inputSize" value={article.quantity} />
+                  <input id={article.id} readOnly type="number" min={1} className="footerResponssive form-control inputSize" value={article.quantity} />
                   <div className="d-flex flex-column">
-                    <button onClick={() => AddProduct(article, '+')} className="btn borderCb py-0">+</button>
+                    <button onClick={() => {AddProduct(article, '+'), console.log(article.quantity)}} className="btn borderCb py-0">+</button>
                     <button onClick={() => AddProduct(article, '-')} className="btn borderCb py-0">-</button>
                   </div>
                 </div>
@@ -35,10 +35,10 @@ export default function Sidebar({ toggleSidebar, panier, AddProduct, priceTot, d
         )}
       </div>
 
-      <div className="jauneBg footer d-flex flex-column align-items-center gap-2 p-3 title">
-        <p className="title marronFT mb-3">TOTAL : {priceTot.toFixed(2)}€</p>
-        <button onClick={()=>deleteAllProduct()} className="btn btnW blancBg rounded-0 borderCb">REINITIALISER LE PANIER</button>
-        <button className="btn btnW blancBg rounded-0 borderCb">VALIDER LE PANIER</button>
+      <div className="jauneBg footerSide d-flex flex-column align-items-center gap-2 p-3 title">
+        <p className="title marronFT mb-3 footerResponssive">TOTAL : {priceTot.toFixed(2)}€</p>
+        <button onClick={()=>deleteAllProduct()} className="footerResponssive btn btnW blancBg rounded-0 borderCb">REINITIALISER LE PANIER</button>
+        <button className="btn btnW blancBg rounded-0 borderCb footerResponssive">VALIDER LE PANIER</button>
       </div>
 
     </div>

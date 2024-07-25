@@ -10,7 +10,7 @@ export default function Carrousel() {
 
     return (
         <>
-        <div className="">
+        <div className="carrouselSize">
                 <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div className="carousel-indicators mb-5">
                         <button
@@ -38,9 +38,9 @@ export default function Carrousel() {
                         <div className="carousel-item active">
                             <img src={Accueil1} className="hautImg" alt="..." />
                             <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
-                                <h1 className="title display-2 jauneT">CHOCO PAP</h1>
+                                <h1 className="title titleCar jauneT">CHOCO PAP</h1>
                                 <NavLink className="nav-link my-md-2 blancT" to="/boutique" >
-                                    <button  className="btn  mt-5 borderCb mx-auto rounded-0 p-2 p-md-3  fw-bold blancBg ">
+                                    <button  className="btn  mt-5 borderCb mx-auto rounded-0 buttonResonssive  fw-bold blancBg ">
                                         Voir la boutique
                                     </button>
                                 </NavLink>
@@ -50,9 +50,9 @@ export default function Carrousel() {
                         <div className="carousel-item">
                             <img src={Accueil2} className="hautImg" alt="..." />
                             <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
-                                <h1 className="title display-2 jauneT">CHOCO PAP</h1>
+                                <h1 className="title titleCar jauneT">CHOCO PAP</h1>
                                 <NavLink className="nav-link my-md-2 blancT" to="/boutique" >
-                                    <button  className="btn  mt-5 borderCb mx-auto rounded-0 p-2 p-md-3  fw-bold blancBg ">
+                                    <button  className="btn   mt-5 borderCb mx-auto rounded-0  buttonResonssive fw-bold blancBg ">
                                         Voir la boutique
                                     </button>
                                 </NavLink>
@@ -63,9 +63,9 @@ export default function Carrousel() {
 
                             
                             <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
-                                <h1 className="title display-2 jauneT">CHOCO PAP</h1>
+                                <h1 className="title titleCar jauneT">CHOCO PAP</h1>
                                 <NavLink className="nav-link my-md-2 blancT" to="/boutique" >
-                                    <button  className="btn  mt-5 borderCb mx-auto rounded-0 p-2 p-md-3  fw-bold blancBg ">
+                                    <button  className="btn  mt-5 borderCb mx-auto rounded-0 buttonResonssive  fw-bold blancBg ">
                                         Voir la boutique
                                     </button>
                                 </NavLink>

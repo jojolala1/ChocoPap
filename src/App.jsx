@@ -6,6 +6,8 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ErrorElement from "./pages/ErrorElement";
 import Sidebar from "./components/sidebar";
 import { useEffect, useState } from "react";
+import ProductPage from "./pages/productPage";
+import { CartProvider, useCart } from "./cartContext";
 
 const router = createBrowserRouter([
   {
@@ -23,77 +25,42 @@ const router = createBrowserRouter([
         path: 'boutique',
         element: <Boutique />,
       },
+      {
+        path: 'boutique/:productname',
+        element: <ProductPage />
+      },
+      {
+        path: '*',
+        element: <ErrorElement />
+      },
     ],
   },
 ]);
 
 function AppLayout() {
-
-  const [panier, setPanier] = useState([])
+  const { panier, price, AddProduct, deleteProduct, deleteAllProduct } = useCart();
   const [isSidebarVisible, setSidebarVisible] = useState(false);
-  const [price, setPrice] = useState(0)
+
   const toggleSidebar = () => {
-    setSidebarVisible(!isSidebarVisible);
-  };
-
-
-  const totalPrice = () => {
-  let compteur = 0
-
-    for(let product of panier ){
-      compteur += product.quantity*product.price
-    }
-    setPrice(compteur)
+    setSidebarVisible(!isSidebarVisible)
   }
-
-  const deleteAllProduct = () => {
-    const newPanier = panier.filter((panierElement)=> panierElement.id === false)
-    setPanier(newPanier)
-  }
-
-  const deleteProduct = (product) => {
-    const newPanier = panier.filter((panierElement)=> panierElement.id !== product.id)
-    setPanier(newPanier)
-  }
-  const AddProduct = (newProduct, action) => {
-    setPanier((prevPanier) => {
-      const existingProduct = prevPanier.find((item) => item.id === newProduct.id);
-  
-      if (existingProduct) {
-        return prevPanier.map((item) => {
-          if (item.id === newProduct.id) {
-            const newQuantity = action === '+' ? item.quantity + 1 : (action === '-' ? item.quantity - 1 : item.quantity);
-  
-            return { ...item, quantity: Math.max(newQuantity, 0) };
-          } else {
-            return item;
-          }
-        });
-      } else {
-        return [...prevPanier, { ...newProduct, quantity: 1 }];
-      }
-    });
-  };
-
-  useEffect(()=>{totalPrice()},[panier])
-
-return (
-  <div className=" divApp min-vh-100">
-    <Navbar toggleSidebar={toggleSidebar} />
-    <div className="main-content d-flex flex-grow-1 position-relative ">
-      {isSidebarVisible && <Sidebar toggleSidebar={toggleSidebar} panier={panier} deleteProduct={deleteProduct} deleteAllProduct={deleteAllProduct} AddProduct={AddProduct} priceTot={price}/>}
-      <div className="content-container flex-grow-1">
-        <Outlet context={{ AddProduct }} />
+  return (
+      <div className="d-flex flex-column divApp">
+        <Navbar toggleSidebar={toggleSidebar}/>
+        {isSidebarVisible && <Sidebar toggleSidebar={toggleSidebar} panier={panier} deleteProduct={deleteProduct} deleteAllProduct={deleteAllProduct} AddProduct={AddProduct} priceTot={price} />}
+        <Outlet context={{ AddProduct }} AddProduct={{ AddProduct }} />
+        <Footer />
       </div>
-    </div>
-    <Footer />
-  </div>
-);
+
+
+  );
 }
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
   );
 }
 
