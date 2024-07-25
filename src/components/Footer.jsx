@@ -1,8 +1,9 @@
+import React from 'react';
 export default function Footer() {
     return (
-        <div className="col-md-3 col-lg-2 mx-auto marronBg w-100 d-flex flex-column flex-md-row footer footerResponssive blancT p-5 gap-5 ">
+        <div className="col-md-3 col-lg-2 mx-auto marronBg w-100 d-flex flex-column flex-md-row footer footerResponssive blancT p-5 gap-5">
             <div className="col-sm blancT">
-                <h5 className="footerResponssive mb-4">Choco Pap</h5>
+                <p className="h5 footerResponssive mb-4 title">Choco Pap</p>
                 <p className="blancT">
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit.
                     Magni veritatis totam laboriosam fuga ducimus aliquam
@@ -10,20 +11,20 @@ export default function Footer() {
                     beatae corporis, officia non modi dolores qui.
                 </p>
             </div>
-            <div className="col-sm blancT ">
-                <h5 className="footerResponssive mb-4">Contact</h5>
+            <div className="col-sm blancT">
+                <p className="h5 footerResponssive title mb-4">Contact</p>
                 <address className="blancT">
                     Adresse: 51 Rue du chocolat 75000 Paris
                     <br />
-                    <a href="tel:+0606060606" className="text-decoration-none blancT ">01.23.45.67.89 </a>
+                    <p className="text-decoration-none blancT">01.23.45.67.89</p>
                     <br />
-                    Horaires:9h00-17h du Lundi au Vendredi
+                    Horaires: 9h00-17h du Lundi au Vendredi
                 </address>
             </div>
-            <div className="col-sm d-flex  gap-5 pe-0">
-                <a href=""><i className="bi bi-facebook display-1 blancT"></i></a>
-                <a href=""><i className="bi bi-instagram display-1 blancT"></i></a>
-                <a href=""><i className="bi bi-twitter display-1 blancT"></i></a>
+            <div className="col-sm d-flex gap-5 pe-0">
+                <a href="#"><i className="bi bi-facebook display-1 blancT" style={{ fontSize: "2rem" }}></i></a>
+                <a href="#"><i className="bi bi-instagram display-1 blancT" style={{ fontSize: "2rem" }}></i></a>
+                <a href="#"><i className="bi bi-twitter display-1 blancT" style={{ fontSize: "2rem" }}></i></a>
             </div>
         </div>
     );

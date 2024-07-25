@@ -45,8 +45,12 @@
 *{
   box-sizing: border-box;
   color: var(--marronF);
-  font-family: var(--textFont);
 
+}
+
+img {
+  width: 100%;
+  height: auto;
 }
 
 body, html {
@@ -59,6 +63,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p, button, input, body {
   margin: 0;
+  font-family: var(--textFont);
 
 }
 
@@ -95,9 +100,33 @@ p, button, input, body {
 }
 
 .footer {
-  flex-grow: 1;
-  margin-top: auto;
-  width: 100vh;
+
+  color: white; /* blancT */
+  padding: 20px;
+  gap: 20px;
+}
+
+.footer h5 {
+  margin-bottom: 20px;
+}
+
+.footer p, .footer address {
+  margin-bottom: 15px;
+}
+
+.footer .col-sm {
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer i {
+  font-size: 2rem;
+  margin-right: 15px;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
 }
 
 .footerSide{
@@ -173,6 +202,16 @@ p, button, input, body {
 
 }
 
+.imgProductPage {
+  width: 100%;
+  min-width: 250px;
+  max-width: 400px;
+  height: 80%;
+}
+
+.coverImg {
+  object-fit: contain;
+}
 
 
 
@@ -209,7 +248,7 @@ p, button, input, body {
 }
 
 .hautProductPage{
-  min-height: 70vh;
+  min-height: 80vh;
 }
 
 @media screen and (min-width: 0) {
@@ -219,6 +258,9 @@ p, button, input, body {
   .sidebar {
     width: 100%;
 }
+.wResponssive{
+  width: 80%;
+}
 
 @media screen and (min-width: 768px) {
   .colorSize {
@@ -226,6 +268,9 @@ p, button, input, body {
   }
   .sidebar {
     width: 35rem;
+}
+.wResponssive{
+  width: 70%;
 }
 
 
@@ -236,6 +281,9 @@ p, button, input, body {
   }
   .sidebar {
     width: 35rem;
+}
+.wResponssive{
+  width: 60%;
 }
 
 }

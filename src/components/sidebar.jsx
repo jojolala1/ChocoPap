@@ -1,3 +1,4 @@
+import React from 'react';
 export default function Sidebar({ toggleSidebar, panier, AddProduct, priceTot, deleteProduct, deleteAllProduct }) {
   return (
     <div className="sidebar blancBg d-flex flex-column flex-grow-1 position-absolute end-0 top-0 h-100 z-2">

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from "react";
 import Products from "../components/Products";
 import { useOutletContext } from "react-router-dom";
@@ -28,7 +29,7 @@ export default function Boutique() {
         fetchProducts();
     }, []);
 
-    const optionPrice = (max, signe = "", selected = 1) => {
+    const optionPrice = (max, signe = "") => {
         const options = [];
         for (let i = 1; i <= max; i++) {
             options.push(
@@ -359,8 +360,9 @@ export default function Boutique() {
                         </form>
                     </div>
                     <div className="ms-5 mb-5 d-flex flex-column d-md-none">
+                    <p className="colorSize mb-3 mt-4 title h5 footerResponssive ">FILTRE</p>
                         <p className="d-inline-flex gap-1">
-                            <a
+                            <p
                                 onClick={() =>
                                     togglerIndice(indiceCat, setIndiceCat)
                                 }
@@ -372,13 +374,13 @@ export default function Boutique() {
                                 aria-controls="collapseCategorie"
                             >
                                 Catégories {indiceCat}
-                            </a>
+                            </p>
                         </p>
                         <div className="collapse" id="collapseCategorie">
                             <Categories />
                         </div>
                         <p className="d-inline-flex gap-1">
-                            <a
+                            <p
                                 onClick={() =>
                                     togglerIndice(indicePrix, setIndicePrix)
                                 }
@@ -390,14 +392,14 @@ export default function Boutique() {
                                 aria-controls="collapsePrix"
                             >
                                 Prix {indicePrix}
-                            </a>
+                            </p>
                         </p>
                         <div className="collapse" id="collapsePrix">
                             <Prix />
                         </div>
 
                         <p className="d-inline-flex gap-1">
-                            <a
+                            <p
                                 onClick={() =>
                                     togglerIndice(indiceNote, setIndiceNote)
                                 }
@@ -409,7 +411,7 @@ export default function Boutique() {
                                 aria-controls="collapseNote"
                             >
                                 Note {indiceNote}
-                            </a>
+                            </p>
                         </p>
                         <div className="collapse" id="collapseNote">
                             <Note />

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 @import url("https://use.typekit.net/tac8tsm.css");
 
+
 :root {
     --blanc: #FFFFFF;
     --bleu: #50C0CF;
@@ -9,7 +10,7 @@
     --marronC: #B65F28;
     --jaune: #FFD543;
 
-    --titleFont: "Fjalla One", sans-serif;
-    --textFont: "droid-serif", serif;
+    --titleFont: "Fjalla One", 'Arial', sans-serif;
+    --textFont: "droid-serif", 'Arial', serif;
 
 }

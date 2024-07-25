@@ -1,3 +1,4 @@
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import Logo from '../images/logo.png'
 import { useCart } from '../cartContext';
@@ -25,7 +26,7 @@ export default function Navbar({toggleSidebar}) {
                                     <div onClick={toggleSidebar}  className=" nav-link d-flex my-md-1">
                                         <p className=' m-md-1 pt-1 blancT'>{compteurQuantity}</p>
                                         <i className="bi bi-cart3 h3 blancT mb-0 mx-2"></i>
-                                        <a  className="nav-link d-md-none p-0 pt-1 blancT">Panier</a>
+                                        <p  className="nav-link d-md-none p-0 pt-1 blancT">Panier</p>
                                     </div>
                             </div>
                         </div>

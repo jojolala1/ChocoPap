@@ -1,23 +1,24 @@
-import Accueil1 from "../images/accueil1.jpg";
-import Accueil2 from "../images/accueil2.jpg";
-import Accueil3 from "../images/accueil3.jpg";
+import React from 'react';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import Accueil1 from "../images/accueil1.webp";
+import Accueil2 from "../images/accueil2.webp";
+import Accueil3 from "../images/accueil3.webp";
 import { NavLink } from 'react-router-dom';
 
 
 export default function Carrousel() {
 
-    // goBoutique onClick={goBoutique}
 
     return (
         <>
-        <div className="carrouselSize">
+            <div className="carrouselSize">
                 <div id="carouselExampleIndicators" className="carousel slide carousel-fade" data-bs-ride="carousel">
                     <div className="carousel-indicators mb-5">
                         <button
                             type="button"
                             data-bs-target="#carouselExampleIndicators"
                             data-bs-slide-to="0"
-                            className="active"
+                            className="active "
                             aria-current="true"
                             aria-label="Slide 1"
                         ></button>
@@ -36,36 +37,42 @@ export default function Carrousel() {
                     </div>
                     <div className="carousel-inner carrouselH">
                         <div className="carousel-item active">
-                            <img src={Accueil1} className="hautImg" alt="..." />
-                            <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
-                                <h1 className="title titleCar jauneT">CHOCO PAP</h1>
-                                <NavLink className="nav-link my-md-2 blancT" to="/boutique" >
-                                    <button  className="btn  mt-5 borderCb mx-auto rounded-0 buttonResonssive  fw-bold blancBg ">
-                                        Voir la boutique
-                                    </button>
-                                </NavLink>
-                               
-                            </div>
-                        </div>
-                        <div className="carousel-item">
-                            <img src={Accueil2} className="hautImg" alt="..." />
-                            <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
-                                <h1 className="title titleCar jauneT">CHOCO PAP</h1>
-                                <NavLink className="nav-link my-md-2 blancT" to="/boutique" >
-                                    <button  className="btn   mt-5 borderCb mx-auto rounded-0  buttonResonssive fw-bold blancBg ">
-                                        Voir la boutique
-                                    </button>
-                                </NavLink>
-                            </div>
-                        </div>
-                        <div className="carousel-item">
-                                <img src={Accueil3} className=" hautImg " alt="..." />
+                            <LazyLoadImage src={Accueil1} className="hautImg" alt="..." loading="lazy" sizes="(max-width: 600px) 480px, (max-width: 1200px) 800px, 1200px"
 
-                            
+                            />
                             <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
                                 <h1 className="title titleCar jauneT">CHOCO PAP</h1>
                                 <NavLink className="nav-link my-md-2 blancT" to="/boutique" >
-                                    <button  className="btn  mt-5 borderCb mx-auto rounded-0 buttonResonssive  fw-bold blancBg ">
+                                    <button className="btn  mt-5 borderCb mx-auto rounded-0 py-2  fw-bold blancBg ">
+                                        Voir la boutique
+                                    </button>
+                                </NavLink>
+
+                            </div>
+                        </div>
+                        <div className="carousel-item">
+                            <LazyLoadImage src={Accueil2} className="hautImg" alt="..." loading="lazy" sizes="(max-width: 600px) 480px, (max-width: 1200px) 800px, 1200px"
+
+                            />
+                            <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
+                                <h1 className="title titleCar jauneT">CHOCO PAP</h1>
+                                <NavLink className="nav-link my-md-2 blancT" to="/boutique" >
+                                    <button className="btn   mt-5 borderCb mx-auto rounded-0 py-2 fw-bold blancBg ">
+                                        Voir la boutique
+                                    </button>
+                                </NavLink>
+                            </div>
+                        </div>
+                        <div className="carousel-item">
+                            <LazyLoadImage src={Accueil3} className=" hautImg " alt="..." loading="lazy" sizes="(max-width: 600px) 480px, (max-width: 1200px) 800px, 1200px"
+
+                            />
+
+
+                            <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
+                                <h1 className="title titleCar jauneT">CHOCO PAP</h1>
+                                <NavLink className="nav-link my-md-2 blancT" to="/boutique" >
+                                    <button className="btn  mt-5 borderCb mx-auto rounded-0 py-2  fw-bold blancBg ">
                                         Voir la boutique
                                     </button>
                                 </NavLink>
@@ -94,6 +101,6 @@ export default function Carrousel() {
             </div>
         </>
 
-            
+
     )
 }
