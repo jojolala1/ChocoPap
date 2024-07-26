@@ -1,6 +1,5 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Logo from '../images/logo.png'
 import { useCart } from '../cartContext';
 
 export default function Navbar({toggleSidebar}) {
@@ -11,7 +10,7 @@ export default function Navbar({toggleSidebar}) {
             <nav className="navbar navbar-expand-md bleuBg z-1 hNav">
                 <div className="container-fluid footerResponssive">
                     <a className="navbar-brand ms-3" href="#">
-                        <img className="img-fluid logo" src={Logo} alt="Logo" />
+                        <img className="img-fluid logo" src="/images/logo.png" alt="Logo" />
                     </a>
                     <button className="navbar-toggler blancBg" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon "></span>

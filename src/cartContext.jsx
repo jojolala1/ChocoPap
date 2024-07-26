@@ -3,22 +3,59 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
-  const [panier, setPanier] = useState([]);
+  const defaultValue = []; // Définir la valeur par défaut appropriée
+
+  const [panier, setPanier] = useState(() => {
+    const stikyValue = window.localStorage.getItem('myCart');
+    try {
+      return stikyValue !== null ? JSON.parse(stikyValue) : defaultValue;
+    } catch (error) {
+      console.error('Failed to parse myCart from localStorage', error);
+      return defaultValue;
+    }
+  });
+
   const [price, setPrice] = useState(0);
   const [compteurQuantity, setCompteurQuantity] = useState(0);
 
+  useEffect(() => {
+    const dataCart = window.localStorage.getItem('myCart');
+    try {
+      const parsedDataCart = JSON.parse(dataCart);
+      if (Array.isArray(parsedDataCart)) {
+        setPanier(parsedDataCart);
+      }
+    } catch (error) {
+      console.error('Failed to parse myCart from localStorage', error);
+    }
+  }, []);
+
+  const myCartStorage = () => {
+    window.localStorage.setItem('myCart', JSON.stringify(panier));
+  };
+
+  useEffect(() => {
+    myCartStorage();
+    totalPrice();
+    totalQuantity();
+  }, [panier]);
+
   const totalQuantity = () => {
     let compteur = 0;
-    for (let product of panier) {
-      compteur += product.quantity;
+    if (Array.isArray(panier)) {
+      for (let product of panier) {
+        compteur += product.quantity;
+      }
     }
     setCompteurQuantity(compteur);
   };
 
   const totalPrice = () => {
     let compteur = 0;
-    for (let product of panier) {
-      compteur += product.quantity * product.price;
+    if (Array.isArray(panier)) {
+      for (let product of panier) {
+        compteur += product.quantity * product.price;
+      }
     }
     setPrice(compteur);
   };
@@ -49,18 +86,11 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  useEffect(() => {
-    totalPrice();
-    totalQuantity();
-  }, [panier]);
-
-  
-
   return (
     <CartContext.Provider value={{ panier, price, compteurQuantity, AddProduct, deleteProduct, deleteAllProduct }}>
       {children}
     </CartContext.Provider>
   );
-}
+};
 
 export const useCart = () => useContext(CartContext);

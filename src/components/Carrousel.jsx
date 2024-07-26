@@ -1,8 +1,4 @@
 import React from 'react';
-import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Accueil1 from "../images/accueil1.webp";
-import Accueil2 from "../images/accueil2.webp";
-import Accueil3 from "../images/accueil3.webp";
 import { NavLink } from 'react-router-dom';
 
 
@@ -37,7 +33,7 @@ export default function Carrousel() {
                     </div>
                     <div className="carousel-inner carrouselH">
                         <div className="carousel-item active">
-                            <LazyLoadImage src={Accueil1} className="hautImg" alt="..." loading="lazy" sizes="(max-width: 600px) 480px, (max-width: 1200px) 800px, 1200px"
+                            <img src="/images/accueil1.webp"  className="hautImg" alt="..." loading="lazy" sizes="(max-width: 600px) 480px, (max-width: 1200px) 800px, 1200px"
 
                             />
                             <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
@@ -51,7 +47,7 @@ export default function Carrousel() {
                             </div>
                         </div>
                         <div className="carousel-item">
-                            <LazyLoadImage src={Accueil2} className="hautImg" alt="..." loading="lazy" sizes="(max-width: 600px) 480px, (max-width: 1200px) 800px, 1200px"
+                            <img src="/images/accueil2.webp" className="hautImg" alt="..." loading="lazy" sizes="(max-width: 600px) 480px, (max-width: 1200px) 800px, 1200px"
 
                             />
                             <div className="carousel-caption d-flex flex-column align-items-center justify-content-center h-100">
@@ -64,7 +60,7 @@ export default function Carrousel() {
                             </div>
                         </div>
                         <div className="carousel-item">
-                            <LazyLoadImage src={Accueil3} className=" hautImg " alt="..." loading="lazy" sizes="(max-width: 600px) 480px, (max-width: 1200px) 800px, 1200px"
+                            <img src="/images/accueil3.webp" className=" hautImg " alt="..." loading="lazy" sizes="(max-width: 600px) 480px, (max-width: 1200px) 800px, 1200px"
 
                             />
 

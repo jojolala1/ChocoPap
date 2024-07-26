@@ -361,7 +361,7 @@ export default function Boutique() {
                     </div>
                     <div className="ms-5 mb-5 d-flex flex-column d-md-none">
                     <p className="colorSize mb-3 mt-4 title h5 footerResponssive ">FILTRE</p>
-                        <p className="d-inline-flex gap-1">
+                        <div className="d-inline-flex gap-1">
                             <p
                                 onClick={() =>
                                     togglerIndice(indiceCat, setIndiceCat)
@@ -375,11 +375,11 @@ export default function Boutique() {
                             >
                                 Catégories {indiceCat}
                             </p>
-                        </p>
+                        </div>
                         <div className="collapse" id="collapseCategorie">
                             <Categories />
                         </div>
-                        <p className="d-inline-flex gap-1">
+                        <div className="d-inline-flex gap-1">
                             <p
                                 onClick={() =>
                                     togglerIndice(indicePrix, setIndicePrix)
@@ -393,12 +393,12 @@ export default function Boutique() {
                             >
                                 Prix {indicePrix}
                             </p>
-                        </p>
+                        </div>
                         <div className="collapse" id="collapsePrix">
                             <Prix />
                         </div>
 
-                        <p className="d-inline-flex gap-1">
+                        <div className="d-inline-flex gap-1">
                             <p
                                 onClick={() =>
                                     togglerIndice(indiceNote, setIndiceNote)
@@ -412,7 +412,7 @@ export default function Boutique() {
                             >
                                 Note {indiceNote}
                             </p>
-                        </p>
+                        </div>
                         <div className="collapse" id="collapseNote">
                             <Note />
                         </div>

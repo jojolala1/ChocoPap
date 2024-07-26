@@ -7,7 +7,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import ErrorElement from "./pages/ErrorElement";
 import Sidebar from "./components/sidebar";
 import { useEffect, useState } from "react";
-import ProductPage from "./pages/productPage";
+import ProductPage from "./components/productPage";
 import { CartProvider, useCart } from "./cartContext";
 
 const router = createBrowserRouter([

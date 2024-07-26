@@ -215,6 +215,7 @@ p, button, input, body {
 
 
 
+
 .productContentImg {
   height:40%;
 }
@@ -257,6 +258,7 @@ p, button, input, body {
   }
   .sidebar {
     width: 100%;
+    
 }
 .wResponssive{
   width: 80%;
@@ -268,6 +270,7 @@ p, button, input, body {
   }
   .sidebar {
     width: 35rem;
+    height: 100%;
 }
 .wResponssive{
   width: 70%;
@@ -281,6 +284,7 @@ p, button, input, body {
   }
   .sidebar {
     width: 35rem;
+
 }
 .wResponssive{
   width: 60%;
